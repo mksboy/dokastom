@@ -2,7 +2,7 @@
 {if $items}
     <!-------------------------------Блок ds_main_menu-->
     <div class="ds-menu-items">
-    <!-------------------------------Меню-->
+
     <div class="ds-menu-item_menu">
         <ul class="ty-menu__items cm-responsive-menu">
             {hook name="blocks:topmenu_dropdown_top_menu"}

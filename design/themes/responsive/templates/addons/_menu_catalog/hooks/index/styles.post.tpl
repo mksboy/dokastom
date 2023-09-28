@@ -1,0 +1,1 @@
+{style src="addons/_menu_catalog/style_menu_catalog.less"}

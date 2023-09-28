@@ -1,0 +1,185 @@
+
+
+.text-banner-full-width {
+  background-color: #ffffff;
+  box-shadow: 0px 0px 20px 0px rgb(173, 191, 250);
+  height: auto;
+  margin-bottom: 20px;
+
+  .container-fluid {
+
+    .ty-menu__items {
+      background: white;
+        .ty-menu__item {
+          a {
+
+            font-family: Roboto, serif;
+            font-weight: bold;
+          }
+        }
+    }
+
+    .menu__search_items {
+
+
+      .block_div {
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+
+        
+        //display: grid;
+        //grid-template-columns: 1.2fr 0.3fr 0.5fr;
+        //align-items: center;
+        //justify-items: end;
+
+        .search__block {
+          //justify-self: center;
+          width: 310px;
+
+          border: 1px solid rgb(136, 71, 251);
+          border-radius: 5px;
+          input {
+            width: 270px;
+            height: 40px;
+            border: none;
+            border-radius: 5px;
+          }
+
+          button {
+            height: 40px;
+            width: 40px;
+            border: none;
+            position: absolute;
+            background: #8847fb;
+            color: white;
+
+            .ty-icon-search {
+              font-size: 20px;
+            }
+          }
+        }
+
+        .cart__block_div {
+
+          .cart__items {
+            .cart_icon {
+              display: flex;
+              align-items: end;
+
+              .cart__img {
+
+              }
+
+              .cart__price_amount {
+                display: flex;
+                align-items: flex-end;
+                .cart_count {
+
+                  margin-left: -10px;
+                  width: 23px;
+                  height: 23px;
+                  background: #8948fc;
+                  border-radius: 50%;
+                  text-align: center;
+
+                  & span {
+                    display: block;
+                    line-height: 23px;
+                    font-size: 12px;
+                    color: #FFFFFF;
+                    -webkit-transform: translateY(1px);
+                    -moz-transform: translateY(1px);
+                    -ms-transform: translateY(1px);
+                    -o-transform: translateY(1px);
+                    transform: translateY(1px);
+                  }
+
+                }
+
+                .cart_price {
+                  padding-left: 10px;
+                }
+
+              }
+            }
+          }
+        }
+
+        .wishlist__items {
+
+          .wishlist__item {
+
+            .wishlist_icon {
+              display: flex;
+              align-items: end;
+
+              .wishlist__img {
+
+              }
+
+              .cart_count {
+
+                margin-left: -10px;
+                width: 23px;
+                height: 23px;
+                background: #8948fc;
+                border-radius: 50%;
+                text-align: center;
+
+                & span {
+                  display: block;
+                  line-height: 23px;
+                  font-size: 12px;
+                  color: #FFFFFF;
+                  -webkit-transform: translateY(1px);
+                  -moz-transform: translateY(1px);
+                  -ms-transform: translateY(1px);
+                  -o-transform: translateY(1px);
+                  transform: translateY(1px);
+                }
+
+              }
+            }
+          }
+        }
+
+      }
+
+    }
+
+  }
+}
+// цвет активного меню
+.ty-menu__item-active {
+  .ty-menu__item-link {
+    background: lighten(#dfdfdf, 1%);
+  }
+}
+
+.no-touch .ty-menu__item:hover .ty-menu__item-link, .is-hover-menu .ty-menu__item-link, .is-hover-menu.ty-menu__item-active .ty-menu__item-link {
+  background: lighten(#dfdfdf, 5%);
+  transition: background-color 300ms ease-in-out;
+  color: black ;
+  text-shadow: none;
+  //border-left: 1px solid darken(#dce3fc, 5%);
+  //border-right: 1px solid darken(#dce3fc, 5%);
+}
+
+.ty-menu__item .ty-menu__item-link {
+  color: black;
+}
+
+.item__promotions {
+  .ty-menu__item-link {
+    color: black !important;
+    font-weight: bold;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .text-banner-full-width .container-fluid .menu__search_items .block_div {
+    display: grid;
+  }
+}

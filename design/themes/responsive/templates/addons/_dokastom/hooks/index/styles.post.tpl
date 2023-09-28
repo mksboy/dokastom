@@ -1,0 +1,1 @@
+{style src="addons/_dokastom/styles.less"}

@@ -1,0 +1,112 @@
+@import "media_products";
+
+.ds-grid-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(234px, 1fr));
+  grid-gap: 10px;
+
+
+  .ds-column {
+    position: relative;
+
+    .wishlist__buttons {
+      position: absolute;
+      z-index: 1;
+
+        .ty-add-to-wish {
+          background: none;
+          font-size: 2rem;
+
+          .ty-icon-doka-love {
+            color: #9cb0c4;
+          }
+        }
+    }
+
+    .ds-grid-list__item {
+      border: 1px solid rgba(206, 206, 206, 0.34);
+      min-height: 366px;
+      min-width: 177px;
+      position: relative;
+
+      &:hover {
+        transition: box-shadow .15s ease-in;
+        box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+      }
+      .ds-grid-list__image {
+        .ty-no-image {
+          border: none;
+          width: auto;
+        }
+
+        a {
+          text-align: center;
+          display: block;
+        }
+      }
+
+      .wishlist__buttons {
+        position: absolute;
+        top: 0;
+        .ty-add-to-wish {
+          background: none;
+          color: #b9b9b9;
+
+          .ty-icon-doka-love {
+            font-size: 37px;
+          }
+        }
+      }
+
+      .ds-grid-list__item-name {
+        min-height: 80px;
+        margin: 7px;
+
+          .product-title {
+
+            text-align: left;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 120%;
+            color: #222;
+            display: block;
+          }
+      }
+
+      .ds-product_features {
+        margin-left: 7px;
+        p {
+          font-size: 0.8em;
+          padding: 0;
+        }
+      }
+
+      .ds-grid-list__control {
+        position: absolute;
+        display: block;
+        bottom: 7px;
+        right: 0;
+        margin: 0 7px 0 7px;
+        .ds-button-container {
+          .ds-button-container_items {
+            display: grid;
+            grid-template-columns: 0.9fr 1fr;
+            align-items: center;
+
+            .ds-price {
+              justify-content: start;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.ty-product-filters__wrapper {
+  background-color: #f4f6fda6;
+}
+
+.ty-sort-container {
+  background: #f4f6fda6;
+}

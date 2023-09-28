@@ -1,0 +1,1 @@
+{style src="addons/ds_main_menu/styles_main_menu.less"}

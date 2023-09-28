@@ -1,0 +1,1 @@
+{style src="addons/_hits_block/style_hits.less"}

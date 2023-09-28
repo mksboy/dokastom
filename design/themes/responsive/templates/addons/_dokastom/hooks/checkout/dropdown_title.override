@@ -1,0 +1,36 @@
+<!-- Cart -->
+
+    <div class="cart__items">
+        {if $smarty.session.cart.amount}
+            <div class="cart_icon">
+                <div class="cart__img">
+                    <img src="images/mspuz/cart.png" alt="">
+                </div>
+
+
+                <div class="cart__price_amount">
+                    <div class="cart_count"><span>{$smarty.session.cart.amount}</span></div>
+                    <div class="cart_price">
+                        <span>{include file="common/price.tpl" value=$smarty.session.cart.display_subtotal}</span>
+                    </div>
+                </div>
+            </div>
+
+
+        {else}
+            <div class="cart_icon null_amount">
+                <div class="cart__img">
+                    <img src="images/mspuz/cart.png" alt="">
+                </div>
+                <div class="cart__price_amount">
+                    <div class="cart_count">
+                        <span>0</span>
+                    </div>
+                </div>
+            </div>
+        {/if}
+    </div>
+
+
+
+

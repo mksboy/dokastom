@@ -1,0 +1,42 @@
+.ds-subcategories {
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+
+  .ds-subcategories__item {
+
+
+    border: 1px solid rgba(206, 206, 206, 0.48);
+    margin: 0 0 -1px -1px;
+
+
+
+
+    a {
+      display: flex;
+      align-items: center;
+      min-height: 45px;
+      font-weight: 500;
+      img {
+        display: block;
+        box-sizing: border-box;
+        width: auto;
+        height: 40px;
+        margin: 0 5px 0 5px;
+      }
+
+      .ty-subcategories-img {
+        padding-bottom: 0;
+      }
+
+      span {
+
+        text-wrap: balance;
+        padding: 0 0 0 5px;
+      }
+
+
+    }
+  }
+}

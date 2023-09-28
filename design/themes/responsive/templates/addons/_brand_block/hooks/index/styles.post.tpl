@@ -1,0 +1,1 @@
+{style src="addons/_brand_block/styles_brands.less"}

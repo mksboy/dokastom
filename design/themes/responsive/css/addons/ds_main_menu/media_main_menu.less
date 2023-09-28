@@ -1,0 +1,23 @@
+@media (min-width: 851px) {
+  .text-banner-full-width {
+    .ds-menu-items {
+      grid-template-columns: 2fr 2fr 0.5fr 0.5fr;
+      grid-template-areas: "menu search wishlist cart";
+    }
+  }
+}
+
+@media (min-width: 300px) and (max-width: 850px){
+  .text-banner-full-width {
+    .ds-menu-items {
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      grid-template-areas:
+              "search search search search search"
+              "menu menu menu wishlist cart";
+
+      .ds-menu-item_search {
+        padding-top: 5px;
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
 {if $products}
-    {script src="js/addons/_dokastom/ds_wishlist.js"}
+
     {script src="js/tygh/exceptions.js"}
 
 
@@ -39,7 +39,6 @@
 {*    </div>*}
 
     <div class="ds-grid-list">
-
 
 
         {$ds_wish_id = array()}

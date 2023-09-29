@@ -1,11 +1,14 @@
 {script src="js/tygh/exceptions.js"}
+{script src="js/addons/_dokastom/update_cart_count.js"}
 
 <div class="ty-product-bigpicture">
     {hook name="products:view_main_info"}
     {if $product}
         {assign var="obj_id" value=$product.product_id}
         {include file="common/product_data.tpl" product=$product but_role="big" but_text=__("add_to_cart") product_labels_mini=true product_labels_static=true product_labels_rounded=true}
+        <div class="ds_product_price">
 
+        </div>
         <div class="ty-product-bigpicture__left">
             <div class="ty-product-bigpicture__left-wrapper">
                 {hook name="products:main_info_title"}
@@ -50,13 +53,28 @@
                     {if $smarty.capture.$old_price|trim}{$smarty.capture.$old_price nofilter}{/if}
                     {/if}
 
-                    {hook name="products:main_price"}
-                    {if $smarty.capture.$price|trim}
-                        <div class="ty-product-block__price-actual">
-                            {$smarty.capture.$price nofilter}
-                        </div>
-                    {/if}
-                    {/hook}
+{*                    {hook name="products:main_price"}*}
+{*                    {if $smarty.capture.$price|trim}*}
+{*                        <div class="ty-product-block__price-actual">*}
+{*                            {$smarty.capture.$price nofilter}*}
+{*                        </div>*}
+{*                    {/if}*}
+{*                    {/hook}*}
+                    <div class="ds_price_sum">
+
+                    </div>
+
+{*                    {foreach from=$smarty.session.cart.products item="ds_product"}*}
+{*                        {$ds_product.product_id|fn_print_r}*}
+{*                        {$ds_product.amount|fn_print_r}*}
+{*                        {if $obj_id == $ds_product.product_id}*}
+{*                           {$ds_product.amount}*}
+{*                        {/if}*}
+{*                    {/foreach}*}
+
+
+
+                    <input type="hidden" value={$product.price} name="ds_product_price" id="ds_product_price" />
 
                     {if $smarty.capture.$old_price|trim || $smarty.capture.$clean_price|trim || $smarty.capture.$list_discount|trim}
                     <div class="ty-product-block__price-old">
@@ -97,49 +115,8 @@
 {*                    {$smarty.capture.$product_amount nofilter}*}
 
 
-
-
-
-
-                    <div class="ty-cart-content__product-elem ty-cart-content__qty {if $product.is_edp == "Y" || $product.exclude_from_calculate} quantity-disabled{/if}">
-                        {if $use_ajax == true && $cart.amount != 1}
-                            {assign var="ajax_class" value="cm-ajax"}
-                        {/if}
-
-                        <div class="quantity cm-reload-{$obj_id}{if $settings.Appearance.quantity_changer == "Y"} changer{/if}" id="quantity_update_{$obj_id}">
-                            <input type="hidden" name="cart_products[{$key}][product_id]" value="{$product.product_id}" />
-                            {if $product.exclude_from_calculate}<input type="hidden" name="cart_products[{$key}][extra][exclude_from_calculate]" value="{$product.exclude_from_calculate}" />{/if}
-
-                            <label for="amount_{$key}"></label>
-                            {if $product.is_edp == "Y" || $product.exclude_from_calculate}
-                                {$product.amount}
-                            {else}
-                                {if $settings.Appearance.quantity_changer == "Y"}
-                                    <div class="ty-center ty-value-changer cm-value-changer">
-                                    <a class="cm-increase ty-value-changer__increase">&#43;</a>
-                                {/if}
-                                <input type="text" size="3" id="amount_{$key}" name="cart_products[{$key}][amount]" value="{$product.amount}" class="ty-value-changer__input cm-amount"{if $product.qty_step > 1} data-ca-step="{$product.qty_step}"{/if} data-ca-min-qty="{if !$product.min_qty}{$default_minimal_qty}{else}{$product.min_qty}{/if}" />
-                                {if $settings.Appearance.quantity_changer == "Y"}
-                                    <a class="cm-decrease ty-value-changer__decrease">&minus;</a>
-                                    </div>
-                                {/if}
-                            {/if}
-                            {if $product.is_edp == "Y" || $product.exclude_from_calculate}
-                                <input type="hidden" name="cart_products[{$key}][amount]" value="{$product.amount}" />
-                            {/if}
-                            {if $product.is_edp == "Y"}
-                                <input type="hidden" name="cart_products[{$key}][is_edp]" value="Y" />
-                            {/if}
-                            <!--quantity_update_{$obj_id}--></div>
-                    </div>
-
-
-
-
-
-
-{*                    {assign var="qty" value="qty_`$obj_id`"}*}
-{*                    {$smarty.capture.$qty nofilter}*}
+                    {assign var="qty" value="qty_`$obj_id`"}
+                    {$smarty.capture.$qty nofilter}
 
                     {assign var="min_qty" value="min_qty_`$obj_id`"}
                     {$smarty.capture.$min_qty nofilter}

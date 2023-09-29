@@ -41,6 +41,7 @@
     <div class="ds-grid-list">
 
 
+
         {$ds_wish_id = array()}
         {foreach from=$smarty.session.wishlist.products item="ds_wishlist_list" key="ds_number"}
             {$ds_wish_id[]=$ds_wishlist_list.product_id}

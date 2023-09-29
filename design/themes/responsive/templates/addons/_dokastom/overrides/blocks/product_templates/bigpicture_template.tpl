@@ -60,9 +60,9 @@
 {*                        </div>*}
 {*                    {/if}*}
 {*                    {/hook}*}
-                    <div class="ds_price_sum">
+                    <h3 class="ds_price_sum">
 
-                    </div>
+                    </h3>
 
 {*                    {foreach from=$smarty.session.cart.products item="ds_product"}*}
 {*                        {$ds_product.product_id|fn_print_r}*}
@@ -178,6 +178,8 @@
                 </div>
                 {if $capture_buttons}{/capture}{/if}
             </div>
+{*            {$my_ret_url = fn_url("products.view?product_id=".$product_id)}*}
+{*            <a href="https://telegram.me/share/url?url=<{$my_ret_url}>&text=<TEXT>">Telegram</a>*}
 
             {hook name="products:product_form_close_tag"}
             {$form_close="form_close_`$obj_id`"}

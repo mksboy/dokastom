@@ -6,14 +6,12 @@
     {if $product}
         {assign var="obj_id" value=$product.product_id}
         {include file="common/product_data.tpl" product=$product but_role="big" but_text=__("add_to_cart") product_labels_mini=true product_labels_static=true product_labels_rounded=true}
-        <div class="ds_product_price">
 
-        </div>
         <div class="ty-product-bigpicture__left">
             <div class="ty-product-bigpicture__left-wrapper">
                 {hook name="products:main_info_title"}
                 {if !$hide_title}
-                    <h1 class="ty-product-block-title" {live_edit name="product:product:{$product.product_id}"}><bdi>{$product.product nofilter}</bdi></h1>
+                    <h1 class="ds-product-block-title" {live_edit name="product:product:{$product.product_id}"}><bdi>{$product.product nofilter}</bdi></h1>
                 {/if}
                 {/hook}
 
@@ -69,6 +67,21 @@
 {*                           {$ds_product.amount}*}
 {*                        {/if}*}
 {*                    {/foreach}*}
+                    {$product_features = $product|fn_get_product_features_list}
+
+                    {foreach $product_features as $feature}
+                        {if $feature.internal_name == "Страна производства"}
+                            {assign var="country_of_origin" value="`$feature.variant`"}
+                        {/if}
+
+                        {if $feature.internal_name == "Производитель"}
+                            {assign var="manufacturer" value="`$feature.variant`"}
+                        {/if}
+
+{*                        {if $feature.internal_name == "Характеристики"}*}
+{*                            {assign var="discount" value="`$feature.variant`"}*}
+{*                        {/if}*}
+                    {/foreach}
 
 
 
@@ -109,10 +122,18 @@
 
                 {if $capture_options_vs_qty}{capture name="product_options"}{$smarty.capture.product_options nofilter}{/if}
                 <div class="ty-product-block__field-group">
-{*                    {assign var="product_amount" value="product_amount_`$obj_id`"}*}
-{*                    {$smarty.capture.$product_amount nofilter}*}
 
+                    <label class="ty-control-group__label" id="sku_{$obj_id}">Страна:</label>
+                    <span class="ty-control-group__item cm-reload-{$obj_id}" id="product_code_{$obj_id}">
+                        {$country_of_origin}
+                        <!--product_code_{$obj_id}--></span>
 
+                    <label class="ty-control-group__label" id="sku_{$obj_id}">Фирма:</label>
+                    <span class="ty-control-group__item cm-reload-{$obj_id}" id="product_code_{$obj_id}">
+                        {$manufacturer}
+                        <!--product_code_{$obj_id}--></span>
+
+                    <hr>
                     {assign var="qty" value="qty_`$obj_id`"}
                     {$smarty.capture.$qty nofilter}
 
@@ -148,35 +169,43 @@
                         {include file="buttons/button.tpl" but_href="products.view?product_id=`$product.product_id`" but_text=__("view_details") but_role="submit"}
                     {/if}
 
-                    {include file="buttons/button.tpl"
-                    but_id="button_cart_`$obj_prefix``$obj_id`"
-                    but_meta="ty-add-to-wish"
-                    but_name="dispatch[checkout.add..`$obj_id`]"
-                    but_role="text"
-                    but_icon="ty-icon-doka-cart"
-                    }
+{*                    {include file="buttons/button.tpl"*}
+{*                    but_id="button_cart_`$obj_prefix``$obj_id`"*}
+{*                    but_meta="ty-add-to-wish"*}
+{*                    but_name="dispatch[checkout.add..`$obj_id`]"*}
+{*                    but_role="text"*}
+{*                    but_icon="ty-icon-doka-cart"*}
+{*                    }*}
 
 {*                    {assign var="add_to_cart" value="add_to_cart_`$obj_id`"}*}
 {*                    {$smarty.capture.$add_to_cart nofilter}*}
-
-
-
-                    <div class="wishlist__buttons">
-                        {include file="buttons/button.tpl"
-                        but_id="button_wishlist_`$obj_prefix``$product.product_id`"
-                        but_meta="ty-add-to-wish" but_name="dispatch[wishlist.add..`$product.product_id`]"
-                        but_role="text"
-                        but_icon="ty-icon-doka-love"
-                        but_onclick=$but_onclick but_href=$but_href}
+                    <div class="ds_block_button">
+                        <div class="ds_add_to_cart">
+                            <button
+                                    id="button_cart_{$obj_id}"
+                                    class="product_cart_button"
+                                    type="submit"
+                                    name="dispatch[checkout.add..{$obj_id}]"
+                            >В корзину</button>
+                        </div>
+                        <div class="wishlist__buttons">
+                            {include file="buttons/button.tpl"
+                            but_id="button_wishlist_`$obj_prefix``$product.product_id`"
+                            but_meta="ty-add-to-wish" but_name="dispatch[wishlist.add..`$product.product_id`]"
+                            but_role="text"
+                            but_icon="ty-icon-doka-love"
+                            but_onclick=$but_onclick but_href=$but_href}
+                        </div>
                     </div>
 
-                    {include file="buttons/button.tpl"
-                    but_text=__("call_requests.buy_now_with_one_click")
-                    but_href="products.view?product_id=`$product.product_id`"
-                    but_role="text"
-                    but_id="buy_now_with_one_click_{$obj_prefix}{$product.product_id}"
-                    but_meta="btn ty-btn ty-btn__text ty-cr-product-button"
-                    }
+
+{*                    {include file="buttons/button.tpl"*}
+{*                    but_text=__("call_requests.buy_now_with_one_click")*}
+{*                    but_href="products.view?product_id=`$product.product_id`"*}
+{*                    but_role="text"*}
+{*                    but_id="buy_now_with_one_click_{$obj_prefix}{$product.product_id}"*}
+{*                    but_meta="btn ty-btn ty-btn__text ty-cr-product-button"*}
+{*                    }*}
                 </div>
                 {if $capture_buttons}{/capture}{/if}
             </div>

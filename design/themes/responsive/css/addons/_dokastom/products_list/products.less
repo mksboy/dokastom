@@ -9,24 +9,26 @@
   .ds-column {
     position: relative;
 
-    .wishlist__buttons {
-      position: absolute;
-      z-index: 1;
+   .wishlist__buttons {
+     position: absolute;
+     top: 5px;
+     left: 5px;
+     z-index: 1;
 
-        .ty-add-to-wish {
-          background: none;
-          font-size: 2rem;
+     & .ds_wishlist_in {
+       color: #9b62fe;
+     }
 
-          .ty-icon-doka-love {
-            color: #bccad7;
-          }
+     a {
+       font-size: 27px;
+       color: #bdbecb;
+     }
 
-          &:hover .ty-icon-doka-love {
-            transition: color 0.3s ease-in;
-            color: #83add5;
-          }
-        }
-    }
+     &:hover a {
+       transition: color 0.3s ease-in;
+       color: #9b62fe;
+     }
+   }
 
     .ds-grid-list__item {
       border: 1px solid rgba(206, 206, 206, 0.34);
@@ -50,18 +52,7 @@
         }
       }
 
-      .wishlist__buttons {
-        position: absolute;
-        top: 0;
-        .ty-add-to-wish {
-          background: none;
-          color: #b9b9b9;
 
-          .ty-icon-doka-love {
-            font-size: 37px;
-          }
-        }
-      }
 
       .ds-grid-list__item-name {
         min-height: 80px;
@@ -95,11 +86,12 @@
         .ds-button-container {
           .ds-button-container_items {
             display: grid;
-            grid-template-columns: 0.9fr 1fr;
+            grid-template-columns: 1.1fr 1fr;
             align-items: center;
 
-            .ds-price {
-              justify-content: start;
+            .ty-btn__add-to-cart {
+              border-radius: 3px;
+              font-size: 15px;
             }
           }
         }

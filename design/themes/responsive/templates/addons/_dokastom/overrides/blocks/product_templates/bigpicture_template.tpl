@@ -53,16 +53,14 @@
                     {if $smarty.capture.$old_price|trim}{$smarty.capture.$old_price nofilter}{/if}
                     {/if}
 
-{*                    {hook name="products:main_price"}*}
-{*                    {if $smarty.capture.$price|trim}*}
-{*                        <div class="ty-product-block__price-actual">*}
-{*                            {$smarty.capture.$price nofilter}*}
-{*                        </div>*}
-{*                    {/if}*}
-{*                    {/hook}*}
-                    <h3 class="ds_price_sum">
+                    {hook name="products:main_price"}
+                    {if $smarty.capture.$price|trim}
+                        <div class="ty-product-block__price-actual">
+                            {$smarty.capture.$price nofilter}
+                        </div>
+                    {/if}
+                    {/hook}
 
-                    </h3>
 
 {*                    {foreach from=$smarty.session.cart.products item="ds_product"}*}
 {*                        {$ds_product.product_id|fn_print_r}*}
@@ -120,6 +118,10 @@
 
                     {assign var="min_qty" value="min_qty_`$obj_id`"}
                     {$smarty.capture.$min_qty nofilter}
+
+                    <h3 class="ds_price_sum">
+
+                    </h3>
                 </div>
                 {if $capture_options_vs_qty}{/capture}{/if}
 

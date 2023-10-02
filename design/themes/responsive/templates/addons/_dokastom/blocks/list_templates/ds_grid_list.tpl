@@ -1,7 +1,7 @@
 {if $products}
 
     {script src="js/tygh/exceptions.js"}
-
+    {script src="js/addons/_dokastom/ds_wishlist.js"}
 
     {if !$no_pagination}
         {include file="common/pagination.tpl"}
@@ -29,25 +29,20 @@
         {$quick_nav_ids = $products|fn_fields_from_multi_level:"product_id":"product_id"}
     {/if}
 
-{*    {assign var="wishlist_count" value=""|fn_wishlist_get_count}*}
-{*    <div class="ds_count_wishlist">*}
-{*        *}{*                                        {$wishlist_count = $smarty.session.wishlist.products|@count}*}
-{*        <div class="ds-wish_list_count" id="wish_list_count">*}
-{*            <span>{$wishlist_count}</span>*}
-{*            <!--wish_list_count-->*}
-{*        </div>*}
-{*    </div>*}
-
+    {*    {assign var="wishlist_count" value=""|fn_wishlist_get_count}*}
+    {*    <div class="ds_count_wishlist">*}
+    {*        *}{*                                        {$wishlist_count = $smarty.session.wishlist.products|@count}*}
+    {*        <div class="ds-wish_list_count" id="wish_list_count">*}
+    {*            <span>{$wishlist_count}</span>*}
+    {*            <!--wish_list_count-->*}
+    {*        </div>*}
+    {*    </div>*}
     <div class="ds-grid-list">
 
 
-
-        {$ds_wish_id = array()}
-        {foreach from=$smarty.session.wishlist.products item="ds_wishlist_list" key="ds_number"}
-            {$ds_wish_id[]=$ds_wishlist_list.product_id}
-
+        {foreach from=$smarty.session.wishlist.products item="ds_wishlist_list"}
+            {$ds_wish_id[$ds_wishlist_list.product_id]=$ds_wishlist_list.product_id}
         {/foreach}
-
         {*        {$smarty.session.wishlist.products|fn_print_r}*}
         {strip}
             {foreach from=$splitted_products item="sproducts" name="sprod"}
@@ -58,21 +53,26 @@
                             {assign var="obj_id" value=$product.product_id}
                             {assign var="obj_id_prefix" value="`$obj_prefix``$product.product_id`"}
                             {include file="common/product_data.tpl" product=$product}
+                            {assign var="ds_wishlist_in" value=""}
                             <div class="ds-grid-list__item ds-quick-view-button__wrapper
                                 {if $settings.Appearance.enable_quick_view == 'Y' || $show_features} ty-grid-list__item--overlay{/if}">
                                 {assign var="form_open" value="form_open_`$obj_id`"}
                                 {$smarty.capture.$form_open nofilter}
                                 {hook name="products:product_multicolumns_list"}
 
-                                    <div class="wishlist__buttons">
-                                        {include file="buttons/button.tpl"
-                                        but_id="button_wishlist_`$obj_prefix``$product.product_id`"
-                                        but_meta="ty-add-to-wish" but_name="dispatch[wishlist.add..`$product.product_id`]"
-                                        but_role="text"
-                                        but_icon="ty-icon-doka-love"
-                                        but_onclick=$but_onclick but_href=$but_href}
-                                    </div>
+{*                                    <a href="{"categories.view?category_id=$product.main_category&features_hash"|fn_url}">Hello</a>*}
 
+
+                                    <div class="wishlist__buttons" id="wishlist__buttons_id">
+                                        <a class="ds_wishlist ty-add-to-wish
+                                        {if $ds_wish_id[$obj_id] == $obj_id} ds_wishlist_in{/if}"
+                                           data-ds-dispatch="{$obj_id}"
+                                        {if $ds_wish_id[$obj_id] == $obj_id}
+                                            id="ds_wishlist_in"
+                                        {/if}>
+                                            <span class="ty-icon-doka-love">{$wishlist_count}</span>
+                                        </a>
+                                        <!--wishlist__buttons_id--></div>
                                     <div class="ds-grid-list__image">
                                         {include file="views/products/components/product_icon.tpl" product=$product show_gallery=true}
 
@@ -88,9 +88,6 @@
                                         {assign var="name" value="name_$obj_id"}
                                         <bdi>{$smarty.capture.$name nofilter}</bdi>
                                     </div>
-
-
-
                                 {if $product.product_code}
                                     <div class="ds-product_features">
                                         <p>Артикул: {$product.product_code}</p>

@@ -172,7 +172,7 @@
                                 <img src="images/mspuz/heart.png" alt="">
                             </div>
 
-                            <div class="cart_count"><span>{$wishlist_count}</span>
+                            <div class="cart_count"><span id="ds_wishlist_span">{$wishlist_count}</span>
 
                             </div>
                         </div>

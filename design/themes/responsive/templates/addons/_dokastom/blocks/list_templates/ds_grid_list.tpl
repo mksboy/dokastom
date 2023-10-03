@@ -60,19 +60,48 @@
                                 {$smarty.capture.$form_open nofilter}
                                 {hook name="products:product_multicolumns_list"}
 
-{*                                    <a href="{"categories.view?category_id=$product.main_category&features_hash"|fn_url}">Hello</a>*}
+                                {$product_features = $product|fn_get_product_features_list}
 
+                                {foreach $product_features as $feature}
+                                    {if $feature.internal_name == "Характеристики"}
+                                        <div class="ds_characteristics_items">
+                                            <div class="ds_characteristics">
+                                                {if $feature.variant == "Акция"}
+                                                    <div class="ds_item_promotion ds_items">{$feature.variant}</div>
+                                                {/if}
+                                                {if $feature.variant == "Скидка"}
+                                                    <div class="ds_item_discount ds_items">{$feature.variant}</div>
+                                                {/if}
+                                                {if $feature.variant == "Хит продаж"}
+                                                    <div class="ds_item_bestseller ds_items">{$feature.variant}</div>
+                                                {/if}
+                                            </div>
+                                        </div>
+                                    {/if}
+                                {/foreach}
 
+                                    {*                                    <a href="{"categories.view?category_id=$product.main_category&features_hash"|fn_url}">Hello</a>*}
                                     <div class="wishlist__buttons" id="wishlist__buttons_id">
                                         <a class="ds_wishlist ty-add-to-wish
                                         {if $ds_wish_id[$obj_id] == $obj_id} ds_wishlist_in{/if}"
                                            data-ds-dispatch="{$obj_id}"
-                                        {if $ds_wish_id[$obj_id] == $obj_id}
+                                                {if $ds_wish_id[$obj_id] == $obj_id}
                                             id="ds_wishlist_in"
-                                        {/if}>
+                                                {/if}>
                                             <span class="ty-icon-doka-love">{$wishlist_count}</span>
                                         </a>
                                         <!--wishlist__buttons_id--></div>
+
+{*                                    {include file="addons/wishlist/views/wishlist/components/add_to_wishlist.tpl"*}
+{*                                    but_id="button_wishlist_`$obj_prefix``$product.product_id`"*}
+{*                                    but_name="dispatch[wishlist.add..`$product.product_id`]"*}
+{*                                    but_role="text"}*}
+
+
+{*                                        {include file="addons/_dokastom/blocks/static_templates/abt__ut2__top_buttons.tpl" product=$product}*}
+
+
+
                                     <div class="ds-grid-list__image">
                                         {include file="views/products/components/product_icon.tpl" product=$product show_gallery=true}
 

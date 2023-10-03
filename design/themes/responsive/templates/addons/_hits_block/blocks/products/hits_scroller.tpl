@@ -60,13 +60,14 @@
 
 
               {$product_features = $product|fn_get_product_features_list}
+
               {$isHit = false}
                   {foreach $product_features as $feature}
 
-                      {if $feature.internal_name == "Акция, Скидка, Хит продаж"}
+                      {if $feature.internal_name == "Характеристики"}
                           {if $feature.variant == "Скидка"}
                               {$isHit = true}
-                              
+                              {assign var="feature_variant" value=$feature.variant}
                               {break}
                           {/if}
                       {/if}
@@ -80,7 +81,11 @@
         {hook name="products:product_scroller_list"}
             <div class="ds-sales-hit">
 
-                <div class="product_features">{$product_features.2.variants.15.variant}</div>
+                <div class="product_features">
+
+                        {$feature_variant}
+
+                </div>
 
                 {hook name="products:product_scroller_list_item"}
                 {$obj_id="scr_`$block.block_id`000`$product.product_id`"}

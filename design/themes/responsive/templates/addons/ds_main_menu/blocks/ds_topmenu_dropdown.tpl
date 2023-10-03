@@ -172,8 +172,8 @@
                                 <img src="images/mspuz/heart.png" alt="">
                             </div>
 
-                            <div class="cart_count"><span id="ds_wishlist_span">{$wishlist_count}</span>
-
+                            <div class="cart_count">
+                                {include file="addons/_dokastom/blocks/static_templates/abt__ut2__top_buttons.tpl" product=$product}
                             </div>
                         </div>
                     {else}

@@ -62,10 +62,10 @@
                     {$product_features = $product|fn_get_product_features_list}
                 {$isHit = false}
                     {foreach $product_features as $feature}
-                        {if $feature.internal_name == "Акция, Скидка, Хит продаж"}
+                        {if $feature.internal_name == "Характеристики"}
                             {if $feature.variant == "Хит продаж"}
                                 {$isHit = true}
-                                
+
                                 {break}
                             {/if}
                         {/if}

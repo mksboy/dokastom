@@ -9,26 +9,55 @@
   .ds-column {
     position: relative;
 
-   .wishlist__buttons {
-     position: absolute;
-     top: 5px;
-     left: 5px;
-     z-index: 1;
+    .ds_characteristics_items {
+      position: absolute;
+      top: 5px;
+      right: 7px;
+      z-index: 1;
 
-     & .ds_wishlist_in {
-       color: #9b62fe;
-     }
+      .ds_characteristics {
+        display: flex;
 
-     a {
-       font-size: 27px;
-       color: #bdbecb;
-     }
+        .ds_items {
+          font-size: 10px;
+          font-weight: 600;
+          padding: 3px;
+        }
 
-     &:hover a {
-       transition: color 0.3s ease-in;
-       color: #9b62fe;
-     }
-   }
+        .ds_item_promotion {
+          background: #0388cc47;
+        }
+
+        .ds_item_discount {
+          background: #b095457d;
+        }
+
+        .ds_item_bestseller {
+          background: #e83e8c52;
+        }
+      }
+    }
+
+    .wishlist__buttons {
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      z-index: 1;
+
+      & .ds_wishlist_in {
+        color: #9b62fe;
+      }
+
+      a {
+        font-size: 27px;
+        color: #bdbecb;
+      }
+
+      &:hover a {
+        transition: color 0.3s ease-in;
+        color: #9b62fe;
+      }
+    }
 
     .ds-grid-list__item {
       border: 1px solid rgba(206, 206, 206, 0.34);
@@ -40,6 +69,7 @@
         transition: box-shadow .15s ease-in;
         box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
       }
+
       .ds-grid-list__image {
         .ty-no-image {
           border: none;
@@ -53,24 +83,24 @@
       }
 
 
-
       .ds-grid-list__item-name {
         min-height: 80px;
         margin: 7px;
 
-          .product-title {
+        .product-title {
 
-            text-align: left;
-            font-weight: 500;
-            font-size: 14px;
-            line-height: 120%;
-            color: #222;
-            display: block;
-          }
+          text-align: left;
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 120%;
+          color: #222;
+          display: block;
+        }
       }
 
       .ds-product_features {
         margin-left: 7px;
+
         p {
           font-size: 0.8em;
           padding: 0;
@@ -83,6 +113,7 @@
         bottom: 7px;
         right: 0;
         margin: 0 7px 0 7px;
+
         .ds-button-container {
           .ds-button-container_items {
             display: grid;

@@ -26,7 +26,7 @@
 
         $.ceAjax('request', fn_url("wishlist.add"), {
             method : 'post',
-            result_ids: 'wishlist__buttons_id',
+            result_ids: 'abt__ut2_wishlist_count',
             full_render: 'Y',
             data: {
                 product_data: {

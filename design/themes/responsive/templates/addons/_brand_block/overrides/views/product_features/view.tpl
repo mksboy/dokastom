@@ -22,4 +22,4 @@
     <p class="ty-no-items">{__("text_no_products")}</p>
 {/if}
 <!--product_features_{$block.block_id}--></div>
-{capture name="mainbox_title"}{$variant_data.variant nofilter}{/capture}S
+{capture name="mainbox_title"}{$variant_data.variant nofilter}{/capture}

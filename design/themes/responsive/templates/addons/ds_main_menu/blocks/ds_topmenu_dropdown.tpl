@@ -164,21 +164,30 @@
 {*            <div class="ds_cont_wishlist">{$ds_id_wishlist_count}</div>*}
             <div class="wishlist__item"">
                 <a href="{"wishlist.view"|fn_url}" rel="nofollow">
-
+                    {$wishlist_count = $smarty.session.wishlist.products|@count}
+{*                    {assign var="wishlist_count" value=""|fn_wishlist_get_count}*}
+                    {if $wishlist_count}
                         <div class="wishlist_icon">
                             <div class="wishlist__img">
                                 <img src="images/mspuz/heart.png" alt="">
                             </div>
 
                             <div class="cart_count">
-                                {include file="addons/_dokastom/blocks/static_templates/abt__ut2__top_buttons.tpl"}
+                                {include file="addons/_dokastom/blocks/static_templates/abt__ut2__top_buttons.tpl" product=$product}
                             </div>
                         </div>
-
+                    {else}
+                        <div class="wishlist_icon">
+                            <div class="wishlist__img">
+                                <img src="images/mspuz/heart.png" alt="">
+                            </div>
+                            <div class="cart_count"><span>0</span></div>
+                        </div>
+                    {/if}
                 </a>
             </div>
         </div>
-
+        <!--wish_list_ds-->
     </div>
 
     <div class="ds-menu-item_cart">

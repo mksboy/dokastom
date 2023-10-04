@@ -88,7 +88,7 @@
                                                 {if $ds_wish_id[$obj_id] == $obj_id}
                                             id="ds_wishlist_in"
                                                 {/if}>
-                                            <span class="ty-icon-doka-love">{$wishlist_count}</span>
+                                            <span class="ty-icon-doka-love"></span>
                                         </a>
                                         <!--wishlist__buttons_id--></div>
 

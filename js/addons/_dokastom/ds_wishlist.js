@@ -6,11 +6,9 @@
     function fn_ds_wishlist_add() {
 
         let ds_wishlist_data = $(this).data('ds-dispatch');
+
         if (!$(this).hasClass('ds_wishlist_in')) {
             $(this).addClass('ds_wishlist_in');
-
-        } else {
-            $(this).removeClass('ds_wishlist_in');
 
         }
 

@@ -76,16 +76,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $msg = Tygh::$app['view']->fetch('addons/wishlist/views/wishlist/components/product_notification.tpl');
                 fn_set_notification('I', $title, $msg, 'I');
             } else {
-                if ($product_ids) {
-                    foreach($product_ids as $wish_id) {
-                        fn_delete_wishlist_product($wishlist, $wish_id);
-                    }
-                    fn_save_cart_content($wishlist, $auth['user_id'], 'W');
-                    fn_set_notification('W', __('notice'), "Товар удалён из списка избранного", 'I');
+                if ($product_ids)
+                {
+                    fn_set_notification('W', __('notice'), __('product_in_wishlist'), 'I');
                 }
-//                {
-//                    fn_set_notification('W', __('notice'), __('product_in_wishlist'));
-//                }
             }
         } else {
             unset($_REQUEST['redirect_url']);

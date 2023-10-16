@@ -9,7 +9,7 @@
     {assign var="layouts" value=""|fn_get_products_views:false:false}
     {assign var="pagination_id" value=$id|default:"pagination_contents"}
     {assign var="avail_sorting" value=$settings.Appearance.available_product_list_sortings}
-
+{*    {$pagination.items_per_page = 16}*}
     {if $search.sort_order_rev == "asc"}
         {capture name="sorting_text"}
             <a>{$sorting[$search.sort_by].description}{include_ext file="common/icon.tpl" class="ty-icon-up-dir"}</a>
@@ -56,6 +56,7 @@
                     {if $step != $pagination.items_per_page}
                         <li class="ty-sort-dropdown__content-item">
                             <a class="{$ajax_class} ty-sort-dropdown__content-item-a" href="{"`$range_url`&items_per_page=`$step`"|fn_url}" data-ca-target-id="{$pagination_id}" rel="nofollow">{$step} {__("per_page")}</a>
+
                         </li>
                     {/if}
                 {/foreach}

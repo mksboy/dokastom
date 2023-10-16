@@ -81,8 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         fn_delete_wishlist_product($wishlist, $wish_id);
                     }
                     fn_save_cart_content($wishlist, $auth['user_id'], 'W');
-                    fn_set_notification('W', __('notice'),
-                        "Товар удалён из списка избранного");
+                    fn_set_notification('W', __('notice'), "Товар удалён из списка избранного", 'I');
                 }
 //                {
 //                    fn_set_notification('W', __('notice'), __('product_in_wishlist'));

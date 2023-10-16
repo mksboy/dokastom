@@ -2,8 +2,11 @@
 
     {script src="js/tygh/exceptions.js"}
     {script src="js/addons/_dokastom/ds_wishlist.js"}
+    {script src="js/addons/_dokastom/product_add.js"}
+
 
     {if !$no_pagination}
+{*        <div class="ty-pagination-container cm-pagination-container" id="pagination_contents">*}
         {include file="common/pagination.tpl"}
     {/if}
 
@@ -29,14 +32,7 @@
         {$quick_nav_ids = $products|fn_fields_from_multi_level:"product_id":"product_id"}
     {/if}
 
-    {*    {assign var="wishlist_count" value=""|fn_wishlist_get_count}*}
-    {*    <div class="ds_count_wishlist">*}
-    {*        *}{*                                        {$wishlist_count = $smarty.session.wishlist.products|@count}*}
-    {*        <div class="ds-wish_list_count" id="wish_list_count">*}
-    {*            <span>{$wishlist_count}</span>*}
-    {*            <!--wish_list_count-->*}
-    {*        </div>*}
-    {*    </div>*}
+
     <div class="ds-grid-list">
 
 
@@ -80,7 +76,6 @@
                                     {/if}
                                 {/foreach}
 
-                                    {*                                    <a href="{"categories.view?category_id=$product.main_category&features_hash"|fn_url}">Hello</a>*}
                                     <div class="wishlist__buttons" id="wishlist__buttons_id">
                                         <a class="ds_wishlist ty-add-to-wish
                                         {if $ds_wish_id[$obj_id] == $obj_id} ds_wishlist_in{/if}"
@@ -91,16 +86,6 @@
                                             <span class="ty-icon-doka-love"></span>
                                         </a>
                                         <!--wishlist__buttons_id--></div>
-
-{*                                    {include file="addons/wishlist/views/wishlist/components/add_to_wishlist.tpl"*}
-{*                                    but_id="button_wishlist_`$obj_prefix``$product.product_id`"*}
-{*                                    but_name="dispatch[wishlist.add..`$product.product_id`]"*}
-{*                                    but_role="text"}*}
-
-
-{*                                        {include file="addons/_dokastom/blocks/static_templates/abt__ut2__top_buttons.tpl" product=$product}*}
-
-
 
                                     <div class="ds-grid-list__image">
                                         {include file="views/products/components/product_icon.tpl" product=$product show_gallery=true}
@@ -190,6 +175,7 @@
     </div>
     {if !$no_pagination}
         {include file="common/pagination.tpl"}
+{*        <!--pagination_contents--></div>*}
     {/if}
 
 {/if}

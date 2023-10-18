@@ -203,9 +203,21 @@
                                 <span class="ty-icon-doka-love"></span>
                             </a>
                             <!--wishlist__buttons_id--></div>
+
+                    </div>
+                    <div class="ds_call_request">
+                        {include file="common/popupbox.tpl"
+                        href="call_requests.request?product_id={$product.product_id}&obj_prefix={$obj_prefix}"
+                        link_text=__("call_requests.buy_now_with_one_click")
+                        text=__("call_requests.buy_now_with_one_click")
+                        id="buy_now_with_one_click_{$obj_prefix}{$product.product_id}"
+                        link_meta="ty-btn ty-btn__text ty-cr-product-button cm-dialog-destroy-on-close"
+                        content=""
+                        dialog_additional_attrs=["data-ca-product-id" => $product.product_id, "data-ca-dialog-purpose" => "call_request"]
+                        }
                     </div>
 
-
+                    
                     {*                    {include file="buttons/button.tpl"*}
                     {*                    but_text=__("call_requests.buy_now_with_one_click")*}
                     {*                    but_href="products.view?product_id=`$product.product_id`"*}
@@ -236,6 +248,8 @@
     {/if}
 
     {/hook}
+
+
 
     {if $smarty.capture.hide_form_changed == "Y"}
         {assign var="hide_form" value=$smarty.capture.orig_val_hide_form}

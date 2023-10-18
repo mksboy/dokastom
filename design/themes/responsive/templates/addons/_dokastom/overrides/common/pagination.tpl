@@ -46,32 +46,14 @@
                     </div>
 
                     <a data-ca-scroll=".cm-pagination-container" class="ty-pagination__item ty-pagination__btn {if $pagination.next_page}ty-pagination__next cm-history {$ajax_class}{/if} ty-pagination__right-arrow" {if $pagination.next_page}href="{"`$c_url`&page=`$pagination.next_page``$extra_url`"|fn_url}" data-ca-page="{$pagination.next_page}" data-ca-target-id="{$id}"{/if}><span class="ty-pagination__text">{__("next")}</span>&nbsp;{include_ext file="common/icon.tpl" class="ty-pagination__text-arrow"}</a>
-
-                    {*                {if $pagination.next_range}*}
-                    {*                    <a data-ca-scroll=".cm-pagination-container"*}
-                    {*                       href="{"`$c_url`&page=`$pagination.next_range``$extra_url`"|fn_url}"*}
-                    {*                       data-ca-page="{$pagination.next_range}"*}
-                    {*                       class="cm-history ty-pagination__item hidden-phone ty-pagination__range {$ajax_class}"*}
-                    {*                       data-ca-target-id="{$id}">{$pagination.next_range_from} - {$pagination.next_range_to}</a>*}
-                    {*                {/if}*}
-
-
                 </div>
 
                 {assign var="product_steps" value=$settings.Appearance.columns_in_products_list|fn_get_product_pagination_steps:$settings.Appearance.products_per_page}
-
-
                 {assign var="ds_step" value=(($product_steps[$ds_step_count]) + $pagination.items_per_page)}
-{*                <input type="hidden" name="ds_pagination" value="{$ds_step_count}" />*}
                 {assign var="range_url" value=$config.current_url|fn_query_remove:"items_per_page":"page"}
-
-                    <div class="ty-sort-dropdown">
-                        <a class="{$ajax_class} ty-sort-dropdown__content-item-a" href="{"`$range_url`&items_per_page=`$ds_step`"|fn_url}" data-ca-target-id="{$id}"  rel="nofollow">Добавить ещё</a>
-
+                    <div class="ds-sort-dropdown">
+                        <a class="{$ajax_class} ds-sort-dropdown__content-item-a" href="{"`$range_url`&items_per_page=`$ds_step`"|fn_url}" data-ca-target-id="{$id}"  rel="nofollow">Добавить ещё</a>
                     </div>
-
-{*                    {$pagination|fn_print_r}*}
-
             </div>
             {if $smarty.capture.pagination_open == "Y"}
                 </div>

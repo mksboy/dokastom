@@ -132,8 +132,10 @@
                                                             {assign var="price" value="price_`$obj_id`"}
                                                             {$smarty.capture.$price nofilter}
                                                         </div>
-                                                        {$add_to_cart = "add_to_cart_`$obj_id`"}
-                                                        {$smarty.capture.$add_to_cart nofilter}
+{*                                                        {$add_to_cart = "add_to_cart_`$obj_id`"}*}
+{*                                                        {$smarty.capture.$add_to_cart nofilter}*}
+
+                                                        {include file="buttons/add_to_cart.tpl" but_id=$_but_id but_name="dispatch[checkout.add..`$obj_id`]" but_role=$but_role block_width=$block_width obj_id=$obj_id product=$product but_meta=$add_to_cart_meta}
                                                     </div>
                                                 </div>
                                             {/if}

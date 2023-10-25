@@ -60,14 +60,6 @@
                     {/if}
                     {/hook}
 
-
-                    {*                    {foreach from=$smarty.session.cart.products item="ds_product"}*}
-                    {*                        {$ds_product.product_id|fn_print_r}*}
-                    {*                        {$ds_product.amount|fn_print_r}*}
-                    {*                        {if $obj_id == $ds_product.product_id}*}
-                    {*                           {$ds_product.amount}*}
-                    {*                        {/if}*}
-                    {*                    {/foreach}*}
                     {$product_features = $product|fn_get_product_features_list}
 
                     {foreach $product_features as $feature}

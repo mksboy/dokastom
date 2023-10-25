@@ -216,6 +216,8 @@
                         dialog_additional_attrs=["data-ca-product-id" => $product.product_id, "data-ca-dialog-purpose" => "call_request"]
                         }
                     </div>
+                    {$url = ""|fn_url:"C"}
+                    <a href="https://api.whatsapp.com/send?text={$url}" target="_blank">WhatsApp</a>
 
                     
                     {*                    {include file="buttons/button.tpl"*}

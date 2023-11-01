@@ -120,24 +120,33 @@
                 <div class="ty-product-block__sku">
                     {assign var="sku" value="sku_`$obj_id`"}
                     {$smarty.capture.$sku nofilter}
+
+                    <div class="ds_label_country">
+                        <label class="ty-control-group__label" id="sku_{$obj_id}">Страна:</label>
+                        <span class="ty-control-group__item cm-reload-{$obj_id}" id="product_code_{$obj_id}">
+                                            {$country_of_origin}
+                                            <!--product_code_{$obj_id}--></span>
+                    </div>
+
+
+                    <div class="ds_label_manufacturer">
+                        <label class="ty-control-group__label" id="sku_{$obj_id}">Фирма:</label>
+                        <span class="ty-control-group__item cm-reload-{$obj_id}" id="product_code_{$obj_id}">
+                                            {$manufacturer}
+                                            <!--product_code_{$obj_id}--></span>
+                    </div>
+
+
                 </div>
+
+                <hr>
 
                 {if $capture_options_vs_qty}{capture name="product_options"}{$smarty.capture.product_options nofilter}{/if}
                 <div class="ty-product-block__field-group">
 
                     <div class="ty-product-block__field-group">
 
-                        <label class="ty-control-group__label" id="sku_{$obj_id}">Страна:</label>
-                        <span class="ty-control-group__item cm-reload-{$obj_id}" id="product_code_{$obj_id}">
-                                            {$country_of_origin}
-                                            <!--product_code_{$obj_id}--></span>
 
-                        <label class="ty-control-group__label" id="sku_{$obj_id}">Фирма:</label>
-                        <span class="ty-control-group__item cm-reload-{$obj_id}" id="product_code_{$obj_id}">
-                                            {$manufacturer}
-                                            <!--product_code_{$obj_id}--></span>
-
-                        <hr>
                         {assign var="qty" value="qty_`$obj_id`"}
                         {$smarty.capture.$qty nofilter}
 
@@ -172,11 +181,6 @@
                 {/if}
 
                 {if $capture_buttons}{capture name="buttons"}{/if}
-
-
-
-
-
 
 
                                 <div class="ty-product-block__button">
@@ -233,18 +237,6 @@
 {*                                                        but_meta="btn ty-btn ty-btn__text ty-cr-product-button"*}
 {*                                                        }*}
                                 </div>
-
-
-
-
-
-
-
-
-
-
-
-
 
                 {if $capture_buttons}{/capture}{/if}
 

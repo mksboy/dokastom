@@ -1,19 +1,3 @@
-/*******************************************************************************************
-*   ___  _          ______                     _ _                _                        *
-*  / _ \| |         | ___ \                   | (_)              | |              © 2020   *
-* / /_\ | | _____  _| |_/ /_ __ __ _ _ __   __| |_ _ __   __ _   | |_ ___  __ _ _ __ ___   *
-* |  _  | |/ _ \ \/ / ___ \ '__/ _` | '_ \ / _` | | '_ \ / _` |  | __/ _ \/ _` | '_ ` _ \  *
-* | | | | |  __/>  <| |_/ / | | (_| | | | | (_| | | | | | (_| |  | ||  __/ (_| | | | | | | *
-* \_| |_/_|\___/_/\_\____/|_|  \__,_|_| |_|\__,_|_|_| |_|\__, |  \___\___|\__,_|_| |_| |_| *
-*                                                         __/ |                            *
-*                                                        |___/                             *
-* ---------------------------------------------------------------------------------------- *
-* This is commercial software, only users who have purchased a valid license and accept    *
-* to the terms of the License Agreement can install and use this program.                  *
-* ---------------------------------------------------------------------------------------- *
-* website: https://cs-cart.alexbranding.com                                                *
-*   email: info@alexbranding.com                                                           *
-*******************************************************************************************/
 (function(_, $) {
 $(document).ready(function() {
 var scroll_height = 100;
@@ -39,7 +23,7 @@ case 'bottom_left': css_block.bottom = 0; css_block.left = 0; break;
 }
 if ($(window).scrollTop() > scroll_height) css_block.display = 'block';
 if (!_is_mobile() || hide_on_mobile === 'N') {
-$('body').append('<div class="ab__scroll_to_top_button"><span class="ab__stt-arrow_4"></span></div>');
+$('body').append('<div class="ab__scroll_to_top_button"><span class="ab__stt-' + _.ab__stt.settings.icon + '"></span></div>');
 $('div.ab__scroll_to_top_button').css(css_block).find('span').css(css_arrow);
 }
 $(window).scroll(function () {

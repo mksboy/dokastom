@@ -344,3 +344,4 @@
 /app/addons/wishlist/schemas/seo/indexation.post.php
 /app/addons/wishlist/init.php
 /app/addons/wishlist/controllers/common/products.pre.php
+/install/

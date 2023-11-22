@@ -1,0 +1,15 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: cs-cart-latest\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language-Team: Russian\n"
+"Language: ru_RU\n"
+
+msgctxt "Addons::name::ds_main_menu"
+msgid "ds_module-order"
+msgstr "Блок заказа"
+
+msgctxt "Addons::description::ds_main_menu"
+msgid "ds_module-order"
+msgstr "Модуль блока заказа"
+

@@ -1,0 +1,13 @@
+msgid ""
+msgstr "Project-Id-Version: tygh\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language-Team: English\n"
+"Language: en_US"
+
+msgctxt "Addons::name::_menu_catalog"
+msgid "dokastom _menu_catalog"
+msgstr "dokastom _menu_catalog"
+
+msgctxt "Addons::description::_menu_catalog"
+msgid "Description dokastom _menu_catalog"
+msgstr "Description dokastom _menu_catalog"

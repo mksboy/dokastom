@@ -15,7 +15,6 @@
                     class="menu__catalog-subcategories-img"
                                 }
                     {/if}
-{*                    image_width="30px"*}
 
                {assign var="menu__catalog_url" value=$items|fn_form_dropdown_object_link:$block.type}
                <a href="{$menu__catalog_url}" class="menu__catalog_title">{$items.category}</a>

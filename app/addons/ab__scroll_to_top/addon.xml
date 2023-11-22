@@ -8,21 +8,18 @@
 <default_language>en</default_language>
 <authors>
 <author>
-<name>AlexBranding</name>
-<email>info@alexbranding.com</email>
-<url>https://alexbranding.com</url>
+<name>Bezrukov_Boris</name>
 </author>
 </authors>
-<supplier>AlexBranding</supplier>
-<supplier_link>https://cs-cart.alexbranding.com</supplier_link>
-<supplier_page>ab__am.addons</supplier_page>
+<supplier>Bezrukov_Boris</supplier>
+
 <compatibility>
 
 <core_version><min>4.9.1</min></core_version>
 <core_edition>ULTIMATE,MULTIVENDOR</core_edition>
 </compatibility>
 <ab>
-<hash>59f4af7cfda19dbd419b90e8f3574b78077b4d64, 2020-12-16 14:26:14</hash>
+
 <compatibility>
 <dependencies>
 

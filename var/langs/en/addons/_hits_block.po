@@ -1,0 +1,13 @@
+msgid ""
+msgstr "Project-Id-Version: tygh\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language-Team: English\n"
+"Language: en_US"
+
+msgctxt "Addons::name::_hits_block"
+msgid "dokastom _hits_block"
+msgstr "dokastom _hits_block"
+
+msgctxt "Addons::description::_hits_block"
+msgid "Description dokastom _hits_block"
+msgstr "Description dokastom _hits_block"

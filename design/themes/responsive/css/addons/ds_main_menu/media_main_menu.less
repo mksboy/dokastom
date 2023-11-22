@@ -1,57 +1,23 @@
 @media (min-width: 851px) {
   .text-banner-full-width {
     .ds-menu-items {
-      display: grid;
+      grid-template-columns: 2fr 2fr 0.5fr 0.5fr;
+      grid-template-areas: "menu search wishlist cart";
+    }
+  }
+}
+
+@media (min-width: 300px) and (max-width: 850px){
+  .text-banner-full-width {
+    .ds-menu-items {
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
       grid-template-areas:
-      "menu search wishlist cart";
-      grid-auto-columns: 0.8fr 1fr 0.2fr 0.3fr;
-      align-items: center;
+              "search search search search search"
+              "menu menu menu wishlist cart";
+
+      .ds-menu-item_search {
+        padding-top: 5px;
+      }
     }
   }
 }
-
-@media (min-width: 300px) and (max-width: 767px) {
-  .ds-menu-items {
-    display: grid;
-    grid-template-areas:
-      "search search search"
-      "menu wishlist cart";
-    grid-auto-columns: 0.7fr 0.3fr 0.3fr;
-    grid-template-rows: 0.2fr 1fr;
-
-    .ds-menu-item_menu {
-      grid-area: menu;
-    }
-
-    .ds-menu-item_search {
-      grid-area: search;
-    }
-
-    .ds-menu-item_wishlist {
-      grid-area: wishlist;
-      margin-top: 7px;
-    }
-
-    .ds-menu-item_cart {
-      grid-area: cart;
-      margin-top: 3px;
-    }
-  }
-}
-
-
-//
-//@media (min-width: 300px) and (max-width: 850px){
-//  .text-banner-full-width {
-//    .ds-menu-items {
-//      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-//      grid-template-areas:
-//              "search search search search search"
-//              "menu menu menu wishlist cart";
-//
-//      .ds-menu-item_search {
-//        padding-top: 5px;
-//      }
-//    }
-//  }
-//}

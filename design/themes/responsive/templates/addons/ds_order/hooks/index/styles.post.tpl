@@ -1,1 +1,0 @@
-{style src="addons/ds_order/styles_ds_order.less"}

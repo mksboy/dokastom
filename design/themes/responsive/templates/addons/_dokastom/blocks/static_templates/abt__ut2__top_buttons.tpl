@@ -1,5 +1,4 @@
 {** block-description:tmpl_abt__ut2__top_buttons **}
-{*{$wishlist_count|fn_print_r}*}
 {$wishlist_count = "fn_wishlist_get_count"|call_user_func}
 <div class="ut2-wishlist-count" id="abt__ut2_wishlist_count">
     <a class="{if !$runtime.customization_mode.live_editor}cm-tooltip{/if}

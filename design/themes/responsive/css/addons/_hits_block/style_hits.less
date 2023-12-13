@@ -1,83 +1,70 @@
 .discount__hits {
-  //--------------------------------------------------------------------------------------------------------------------
-  //  Блок скидка-хит продаж
-  //--------------------------------------------------------------------------------------------------------------------
-          .product_features {
-            position: absolu0te;
-            top: 10px;
-            left: 20px;
-          text-align: center;
-          font-size: 1.2rem;
-          font-weight: bold;
-          width: 90px;
-          height: 30px;
-          background: #00a161;
-          border-radius: 3px;
-          color: white;
-        }
 
-  .discount__block {
-
+  .ty-scroller-list {
     border: 1px solid #cecece;
     border-radius: 10px;
     height: 474px;
+    box-sizing: border-box;
+  }
+  //--------------------------------------------------------------------------------------------------------------------
+  //  Блок скидка-хит продаж
+  //--------------------------------------------------------------------------------------------------------------------
+  .product_features {
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    width: max-content;
+    height: 25px;
+    border-radius: 3px;
+    color: white;
+    padding: 3px;
+  }
 
-    .owl-buttons-items {
-      border-bottom: 1px solid #cecece;
 
 
+.discount {
+  .discount__block {
+    .ds_discount {
+      background: #00a161;
     }
+.ds-sales-hit {
+  img {
+    border-radius: 10px;
+  }
+  height: 474px;
+  position: relative;
+  .ds-sales-hit__product-card {
+    .ds_image-container {
+      position: relative;
+        .ds_favorite-button {
 
-    .ds-sales-hit {
+          position: absolute;
+          right: 20px;
+          top: 20px;
 
-      .product_features {
-        position: absolute;
-        top: 25px;
-        left: 20px;
-      }
+          .ty-add-to-wish {
+            background: none;
+            color: #b9b9b9;
 
-      .ds-sales-hit__product-card {
-
-        .image-container {
-
-
-          .favorite-button {
-            position: absolute;
-            right: 20px;
-            top: 20px;
-
-            .ty-add-to-wish {
-              background: none;
-              color: #b9b9b9;
-
-              .ty-icon-doka-love {
-                font-size: 37px;
-              }
+            .ty-icon-doka-love {
+              font-size: 37px;
             }
           }
 
-          //-------------------------------
-          .product-picture {
-            margin-top: 7px;
-          }
         }
-      }
     }
+  }
 
-    //--------------------------------------------
-    .ty-scroller-list__hits {
-      margin: 0 10px 0 10px;
-      text-align: center;
-    }
+  .ds-scroller-list__hits {
+    text-align: center;
+  }
 
-    //--------------------------------------------
-    .ty-scroller-list__hits-cart {
-
+    .ds-scroller-list__hits-cart {
       .cart__buttons {
-        margin: 0 15px 5px 15px;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
+        position: absolute;
+        bottom: 3px;
+        right: 10px;
 
         .ty-btn {
           background: none;
@@ -89,19 +76,26 @@
         }
 
 
-
       }
     }
+
+}
+
   }
+}
 
   //--------------------------------------------------------------------------------------------------------------------
   // Хит продаж
   //--------------------------------------------------------------------------------------------------------------------
- .top_seller__block {
-    border: 1px solid #cecece;
-    border-radius: 10px;
-    height: 474px;
-    box-sizing: border-box;
+  .ds_bestseller {
+    background-color: #4d90fe;
+  }
+
+  .top_seller__block {
+
+
+
+
     .owl-item {
 
       .ds-sales-hit {
@@ -126,7 +120,6 @@
                 }
               }
             }
-
 
 
             //-------------------------------

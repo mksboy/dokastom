@@ -1,0 +1,46 @@
+.ds_order_items {
+  h4 {
+    text-align: center;
+  }
+  .ds_order_item {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    gap: 30px;
+
+    .ds_private_inn {
+      h4 {
+        text-align: center;
+      }
+    }
+  }
+}
+
+.ds_delivery_items {
+  h2 {
+    text-align: center;
+  }
+  .ds_delivery_item {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 40px;
+    .ds_delivery {
+      h4 {
+        height: 45px;
+      }
+      .ds_pickup {
+        display: flex;
+
+          .ds_delivery_img {
+            width: 400px;
+          }
+      }
+    }
+  }
+  .ds_order_img_block {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    align-items: center;
+  }
+}

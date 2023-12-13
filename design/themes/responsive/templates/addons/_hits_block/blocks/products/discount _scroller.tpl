@@ -34,20 +34,9 @@
     {$item_quantity_tablet = $item_quantity - 1}
 {/if}
 
-{*{if $block.properties.outside_navigation == "Y"}*}
-{*    <div class="owl__theme">*}
-{*        <div class="owl-controls clickable owl-controls-outside" id="owl_outside_nav_{$block.block_id}">*}
-{*            <div class="owl-buttons" id="owl_prev_{$obj_prefix}">*}
-{*                *}{*                <div class="owl-prev">{include_ext file="common/icon.tpl" class="ty-icon-left-open-thin"}</div>*}
-{*                <div class="owl_prev_title">*}
-{*                    <h2 class="ty-mainbox-simple-title">Хит продаж</h2>*}
-{*                </div>*}
-{*                <div id="owl_next_{$obj_prefix}"*}
-{*                     class="owl-next">{include_ext file="common/icon.tpl" class="ty-icon-right-open-thin"}</div>*}
-{*            </div>*}
-{*        </div>*}
-{*    </div>*}
-{*{/if}*}
+<div class="product_features ds_bestseller">
+    <span>Хит продаж</span>
+</div>
 
 
 <div id="scroll_list_{$block.block_id}" class="owl-carousel ty-scroller-list ty-scroller"
@@ -83,6 +72,7 @@
                 {$obj_id="scr_`$block.block_id`000`$product.product_id`"}
                     <div class="ds-sales-hit__product-card">
                         <div class="image-container">
+
                             <div class="favorite-button">
                                 {strip}
                                     {include file="addons/_hits_block/blocks/list_templates/wishlist_but.tpl" product=$product show_list_buttons=true  show_add_to_cart=true but_role="action"}

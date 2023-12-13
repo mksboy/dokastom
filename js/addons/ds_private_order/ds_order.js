@@ -1,100 +1,127 @@
-// litecheckout_payments_form
 (function (_, $) {
-    $(document).ready(function() {
-        $('#litecheckout_private_1').prop('checked', true);
-        $('#litecheckout_final_section').hide();
-        $(_.doc).on('click', '#litecheckout_private_2', function() {
-            fn_ds_is_order_inn();
+    $(document).ready(function () {
+        let ds_page = 1;
+
+        fn_ds_page_one(ds_page);
+
+        if ($("#litecheckout_private_2").prop("checked")) {
+            $("#payments_20").parent().hide();
+        }
+
+
+        // $('#litecheckout_step_shipping').hide();
+        // $('#litecheckout_step_location').hide();
+        // $('#litecheckout_terms').hide();
+        // $('#litecheckout_final_section').hide();
+        // $('#ds_prev-step_id').hide();
+
+
+
+        // result_ids = 'shipping_rates_list,checkout_info_summary_*,checkout_info_order_info_*',
+
+        $(_.doc).on('click', '#ds_next-step_id', function () {
+            ds_page = ds_page + 1;
+            if (ds_page > 4) {
+                ds_page = 4;
+            }
+            fn_ds_page_one(ds_page);
+            return ds_page;
         });
-        $(_.doc).on('click', '#litecheckout_private_1', function() {
-            fn_ds_is_order_private();
+
+        $(_.doc).on('click', '#ds_prev-step_id', function () {
+            ds_page = ds_page - 1;
+            if (ds_page < 1) {
+                ds_page = 1;
+            }
+            fn_ds_page_one(ds_page);
+            return ds_page;
         });
+
+        $(_.doc).on('click', '#litecheckout_private_1', function () {
+            var inn_isChecked = $('#litecheckout_private_1').prop('checked');
+            $("#radio_20").removeAttr("checked");
+            $("#payments_20").parent().show();
+            // fn_ds_is_order_inn(inn_isChecked);
+        });
+
+        $(_.doc).on('click', '#litecheckout_private_2', function () {
+            var private_isChecked = $('#litecheckout_private_2').prop('checked');
+            // fn_ds_is_order_private(private_isChecked);
+            $("#payments_20").parent().hide();
+
+        });
+
+
     });
 
-    function fn_ds_is_order_inn() {
-            $.ceAjax('request', fn_url("ds_private_order.ds_reg_inn"), {
-                method : 'post',
-                result_ids: 'ds_id_order',
-                callback: function() {
-                    $('#litecheckout_private_2').prop('checked', true);
-                }
-            });
+    function fn_ds_page_one(ds_page) {
 
+        if (ds_page === 1) {
+            $('.litecheckout__step').show();
+            $('#ds_next-step_id').show();
+
+                $('#litecheckout_step_shipping').hide();
+                $('#litecheckout_step_payment').hide();
+                $('#litecheckout_step_location').hide();
+                $('#litecheckout_terms').hide();
+                $('#litecheckout_final_section').hide();
+                $('#ds_prev-step_id').hide();
+
+        }
+
+        if (ds_page === 2) {
+            $('#litecheckout_step_shipping').hide();
+            $('#litecheckout_step_location').hide();
+            $('.litecheckout__step').hide();
+            $('#ds_prev-step_id').show();
+            $('#litecheckout_step_payment').show();
+
+        }
+
+        if (ds_page === 3) {
+            $('#litecheckout_terms').hide();
+            $('#litecheckout_final_section').hide();
+            $('#litecheckout_step_payment').hide();
+            $('#litecheckout_step_location').show();
+            $('#litecheckout_step_shipping').show();
+        }
+
+        if (ds_page === 4) {
+            $('#litecheckout_step_payment').hide();
+            $('#litecheckout_step_location').hide();
+            $('#litecheckout_step_shipping').hide();
+            $('#litecheckout_terms').show();
+            $('#litecheckout_final_section').show();
+            $('#ds_next-step_id').hide();
+
+        }
     }
 
-    function fn_ds_is_order_private() {
-            $.ceAjax('request', fn_url("ds_private_order.ds_reg_private"), {
-                method : 'post',
-                result_ids: 'ds_id_order',
-                callback: function() {
-                    $('#litecheckout_private_1').prop('checked', true);
-                }
-            });
-    }
+    // function fn_ds_is_order_inn(inn_isChecked) {
+    //     $.ceAjax('request', fn_url("checkout.checkout"), {
+    //         method: 'POST',
+    //         full_render: 'Y',
+    //         result_ids: 'litecheckout_final_section,litecheckout_step_payment,shipping_rates_list,litecheckout_terms,checkout*',
+    //         data: {
+    //             isChecked: inn_isChecked,
+    //                 product_id: 'ds_inn'
+    //         },
+    //     });
+    // }
+    //
+    // function fn_ds_is_order_private(private_isChecked) {
+    //     $.ceAjax('request', fn_url("checkout.checkout"), {
+    //         method: 'POST',
+    //         full_render: 'Y',
+    //         result_ids: 'litecheckout_final_section,litecheckout_step_payment,shipping_rates_list,litecheckout_terms,checkout*',
+    //         data: {
+    //             isChecked: private_isChecked,
+    //             product_id: 'ds_private',
+    //         },
+    //     });
+    // }
 
 
 }(Tygh, Tygh.$));
 
-
-// // Замените на свой API-ключ
-// var token = "ff1ee7dce3a09c0a91e3b08fc4f2f973685629f6";
-//
-// $("#party").change(function(e) {
-//     var promise = suggest(e.target.value);
-//     promise
-//         .done(function(response) {
-//             showParty(response.suggestions)
-//             console.log(response);
-//         })
-//         .fail(function(jqXHR, textStatus, errorThrown) {
-//             console.log(textStatus);
-//             console.log(errorThrown);
-//         });
-// });
-//
-// function suggest(query) {
-//     var serviceUrl = "https://suggestions.dadata.ru/suggestions/api/4_1/rs/findById/party";
-//     var request = {
-//         "query": query
-//     };
-//     var params = {
-//         type: "POST",
-//         contentType: "application/json",
-//         headers: {
-//             "Authorization": "Token " + token
-//         },
-//         data: JSON.stringify(request)
-//     }
-//
-//     return $.ajax(serviceUrl, params);
-// }
-//
-// function clearParty() {
-//     $("#name_short").val("");
-//     $("#name_full").val("");
-//     $("#inn").val("");
-//     $("#kpp").val("");
-//     $("#address").val("");
-// }
-//
-// function showParty(suggestions) {
-//     clearParty();
-//     if (suggestions.length === 0) return;
-//     var party = suggestions[0].data;
-//     $("#name_short").val(party.name.short_with_opf);
-//     $("#name_full").val(party.name.full_with_opf);
-//     $("#inn").val(party.inn);
-//     $("#kpp").val(party.kpp);
-//     $("#address").val(party.address.value);
-//     showManagement(party);
-// }
-//
-// function showManagement(party) {
-//     if (party.management) {
-//         $("#management_post").text(party.management.post);
-//         $("#management_name").val(party.management.name);
-//     } else {
-//         $("#management_post").text("");
-//         $("#management_name").val("");
-//     }
-// }
+// <input type="radio" name="selected_payment_method" id="radio_19" data-ca-target-form="litecheckout_payments_form" data-ca-url="checkout.checkout" data-ca-result-ids="litecheckout_final_section,litecheckout_step_payment,shipping_rates_list,litecheckout_terms,checkout*" className="litecheckout__shipping-method__radio cm-select-payment hidden" value="19" checked="">

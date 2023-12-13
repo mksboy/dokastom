@@ -35,18 +35,9 @@
 {/if}
 
 
-{*{if $block.properties.outside_navigation == "Y"}*}
-{*    <div class="owl-buttons-items">*}
-{*        <div class="owl-controls clickable owl-controls-outside"  id="owl_outside_nav_{$block.block_id}">*}
-{*            <div class="owl-buttons" id="owl_prev_{$obj_prefix}">*}
-{*                <div class="owl-prev">{include_ext file="common/icon.tpl" class="ty-icon-left-open-thin"}</div>*}
-
-{*                <div  class="owl-next">{include_ext file="common/icon.tpl" class="ty-icon-right-open-thin"}</div>*}
-{*            </div>*}
-{*        </div>*}
-{*    </div>*}
-{*{/if}*}
-
+<div class="product_features ds_discount">
+    <span>Скидка</span>
+</div>
 
 <div id="scroll_list_{$block.block_id}" class="owl-carousel ty-scroller-list ty-scroller"
      data-ca-scroller-item="{$item_quantity}"
@@ -55,44 +46,38 @@
      data-ca-scroller-item-tablet="{$item_quantity_tablet}"
      data-ca-scroller-item-mobile="{$item_quantity_mobile}"
 >
+
     {foreach from=$items item="product" name="for_products"}
 
 
 
-              {$product_features = $product|fn_get_product_features_list}
+        {$product_features = $product|fn_get_product_features_list}
 
-              {$isHit = false}
-                  {foreach $product_features as $feature}
+        {$isHit = false}
+        {foreach $product_features as $feature}
 
-                      {if $feature.internal_name == "Характеристики"}
-                          {if $feature.variant == "Скидка"}
-                              {$isHit = true}
-                              {assign var="feature_variant" value=$feature.variant}
-                              {break}
-                          {/if}
-                      {/if}
-                  {/foreach}
-                  {if $isHit == false}
-                      {continue}
-                  {/if}
+            {if $feature.internal_name == "Характеристики"}
+                {if $feature.variant == "Скидка"}
+                    {$isHit = true}
+                    {assign var="feature_variant" value=$feature.variant}
+                    {break}
+                {/if}
+            {/if}
+        {/foreach}
+        {if $isHit == false}
+            {continue}
+        {/if}
 
 
 
-        {hook name="products:product_scroller_list"}
+        {hook name="products:ds_product_scroller_list"}
             <div class="ds-sales-hit">
-
-                <div class="product_features">
-
-                        {$feature_variant}
-
-                </div>
-
-                {hook name="products:product_scroller_list_item"}
+                {hook name="products:ds_product_scroller_list_item"}
                 {$obj_id="scr_`$block.block_id`000`$product.product_id`"}
                     <div class="ds-sales-hit__product-card">
 
-                        <div class="image-container">
-                            <div class="favorite-button">
+                        <div class="ds_image-container">
+                            <div class="ds_favorite-button">
                                 {strip}
                                     {include file="addons/_hits_block/blocks/list_templates/wishlist_but.tpl" product=$product show_list_buttons=true  show_add_to_cart=true but_role="action"}
                                 {/strip}
@@ -109,12 +94,12 @@
 
                         </div>
                     </div>
-                    <div class="ty-scroller-list__hits">
+                    <div class="ds-scroller-list__hits">
                         {strip}
                             {include file="blocks/list_templates/simple_list.tpl" product=$product  show_name=true show_price=false show_add_to_cart=$_show_add_to_cart but_role="action" hide_price=$_hide_price hide_qty=true show_product_labels=true show_discount_label=true show_shipping_label=true}
                         {/strip}
                     </div>
-                    <div class="ty-scroller-list__hits-cart">
+                    <div class="ds-scroller-list__hits-cart">
 
 
                         {strip}

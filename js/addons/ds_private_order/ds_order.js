@@ -19,10 +19,19 @@
 
         // result_ids = 'shipping_rates_list,checkout_info_summary_*,checkout_info_order_info_*',
 
+        $(_.doc).on('click', '#ds_confirm-step_id', function () {
+            ds_page = ds_page + 1;
+            if (ds_page > 5) {
+                ds_page = 5;
+            }
+            fn_ds_page_one(ds_page);
+            return ds_page;
+        });
+
         $(_.doc).on('click', '#ds_next-step_id', function () {
             ds_page = ds_page + 1;
-            if (ds_page > 4) {
-                ds_page = 4;
+            if (ds_page > 5) {
+                ds_page = 5;
             }
             fn_ds_page_one(ds_page);
             return ds_page;
@@ -57,8 +66,24 @@
     function fn_ds_page_one(ds_page) {
 
         if (ds_page === 1) {
-            $('.litecheckout__step').show();
-            $('#ds_next-step_id').show();
+            $('#ds_confirm_id').show(300);
+
+            $('.litecheckout__step').hide();
+            $('#ds_next-step_id').hide();
+
+            $('#litecheckout_step_shipping').hide();
+            $('#litecheckout_step_payment').hide();
+            $('#litecheckout_step_location').hide();
+            $('#litecheckout_terms').hide();
+            $('#litecheckout_final_section').hide();
+            $('#ds_prev-step_id').hide();
+
+        }
+
+        if (ds_page === 2) {
+            $('.litecheckout__step').show(300);
+            $('#ds_next-step_id').show(300);
+            $('#ds_confirm_id').hide();
 
                 $('#litecheckout_step_shipping').hide();
                 $('#litecheckout_step_payment').hide();
@@ -69,29 +94,31 @@
 
         }
 
-        if (ds_page === 2) {
+        if (ds_page === 3) {
+            $('#ds_next-step_id').show(300);
             $('#litecheckout_step_shipping').hide();
             $('#litecheckout_step_location').hide();
             $('.litecheckout__step').hide();
-            $('#ds_prev-step_id').show();
-            $('#litecheckout_step_payment').show();
+            $('#ds_prev-step_id').show(300);
+            $('#litecheckout_step_payment').show(300);
 
-        }
-
-        if (ds_page === 3) {
-            $('#litecheckout_terms').hide();
-            $('#litecheckout_final_section').hide();
-            $('#litecheckout_step_payment').hide();
-            $('#litecheckout_step_location').show();
-            $('#litecheckout_step_shipping').show();
         }
 
         if (ds_page === 4) {
+            $('#ds_next-step_id').show(300);
+            $('#litecheckout_terms').hide();
+            $('#litecheckout_final_section').hide();
+            $('#litecheckout_step_payment').hide();
+            $('#litecheckout_step_location').show(300);
+            $('#litecheckout_step_shipping').show(300);
+        }
+
+        if (ds_page === 5) {
             $('#litecheckout_step_payment').hide();
             $('#litecheckout_step_location').hide();
             $('#litecheckout_step_shipping').hide();
-            $('#litecheckout_terms').show();
-            $('#litecheckout_final_section').show();
+            $('#litecheckout_terms').show(300);
+            $('#litecheckout_final_section').show(300);
             $('#ds_next-step_id').hide();
 
         }

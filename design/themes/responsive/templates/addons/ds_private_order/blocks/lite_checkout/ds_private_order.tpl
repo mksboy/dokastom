@@ -14,6 +14,14 @@
 {$show_customer_fields_first = $contact_info_section_position < $shipping_section_position}
 {* login popup *}
 {if !$auth.user_id}
+    <h1 class="litecheckout__page-title">{__('checkout')}</h1>
+
+    <div class="ds_confirm_items" id="ds_confirm_id">
+        {include file="addons/ds_private_order/views/checkout/components/ds_cart_content.tpl"}
+
+        <button type="button" class="ds_confirm-step" id="ds_confirm-step_id">Подтверждаю</button>
+    </div>
+
     <div id="litecheckout_login_block" class="hidden" title="{__("sign_in")}">
         <div class="ty-login-popup">
             {include file="views/auth/login_form.tpl"
@@ -25,9 +33,8 @@
 {/if}
 
 
-
 <div class="litecheckout litecheckout__form" id="litecheckout_form">
-    <h1 class="litecheckout__page-title">{__('checkout')}</h1>
+
     <div data-ca-lite-checkout-element="form">
         <form name="litecheckout_payments_form"
               id="litecheckout_payments_form"
@@ -38,6 +45,8 @@
               class="litecheckout__group litecheckout__payment-methods"
         >
 
+
+
             {include file="views/checkout/components/steps/customer.tpl"
             show_title=!$show_customer_fields_first
             show_information=!$show_customer_fields_first
@@ -47,7 +56,7 @@
 
 
             {include file="views/checkout/components/steps/payment.tpl"}
-{*Блоки с доставкой*}
+            {*Блоки с доставкой*}
 
             {include file="views/checkout/components/steps/shipping.tpl"}
 
@@ -72,8 +81,8 @@
 
             <button type="button" class="ds_prev-step" id="ds_prev-step_id">Назад</button>
             <button type="button" class="ds_next-step" id="ds_next-step_id">Далее</button>
-{*            <input type="button" id="ds_prev-step" value="Далее" class="ds_prev-step">*}
-{*            <input type="button" id="ds_prev-step" value="Далее" class="ds_prev-step">*}
+            {*            <input type="button" id="ds_prev-step" value="Далее" class="ds_prev-step">*}
+            {*            <input type="button" id="ds_prev-step" value="Далее" class="ds_prev-step">*}
 
             <div class="litecheckout__group litecheckout__submit-order" id="litecheckout_final_section">
                 {include file="views/checkout/components/final_section.tpl"

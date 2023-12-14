@@ -1,13 +1,72 @@
-.ds_confirm_items {
-  .ds_confirm-step {
-    border: none;
-    background: #8847fb;
-    border-radius: 5px;
-    height: 32px;
-    color: white;
-    font-weight: bold;
-    float: right;
-    margin-right: 4px;
-    margin-top: 16px;
+.ds_order_steps {
+
+  .ds_checkout_button {
+    .ds_button-step {
+      border: none;
+      background: #8847fb;
+      border-radius: 5px;
+      height: 32px;
+      color: white;
+      font-weight: bold;
+      float: right;
+      margin-right: 4px;
+      margin-top: 16px;
+    }
+  }
+
+  .ds_page_step_items {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    #ds_stepIndicator {
+      display: flex;
+    }
+
+    .step {
+      text-align: center;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      margin: 0 5px;
+      padding: 5px;
+      border: 1px solid #ccc;
+
+
+      &:hover {
+        background-color: #f0f0f0;
+      }
+
+      &.active {
+        background-color: #007bff;
+        color: #fff;
+        border-color: #007bff;
+      }
+    }
+  }
+
+
+  .ds_confirm_items {
+    .ds_confirm-step {
+      border: none;
+      background: #8847fb;
+      border-radius: 5px;
+      height: 32px;
+      color: white;
+      font-weight: bold;
+      float: right;
+      margin-right: 4px;
+      margin-top: 16px;
+    }
+  }
+
+  #ds_checkout_id {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+      label {
+        font-size: 16px;
+      }
   }
 }

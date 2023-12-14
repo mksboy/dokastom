@@ -14,7 +14,22 @@
 {$show_customer_fields_first = $contact_info_section_position < $shipping_section_position}
 {* login popup *}
 {if !$auth.user_id}
-    <h1 class="litecheckout__page-title">{__('checkout')}</h1>
+    <div class="ds_page_step_items">
+        <div class="ds_page-title">
+            <h1 class="ds_litecheckout__page-title">{__('checkout')}</h1>
+        </div>
+
+        <div id="ds_stepIndicator">
+            <div class="step" data-step="1">1</div>
+            <div class="step" data-step="2">2</div>
+            <div class="step" data-step="3">3</div>
+            <div class="step" data-step="4">4</div>
+            <div class="step" data-step="5">5</div>
+            <div class="step" data-step="6">6</div>
+            <div class="step" data-step="7">7</div>
+        </div>
+    </div>
+
 
     <div class="ds_confirm_items" id="ds_confirm_id">
         {include file="addons/ds_private_order/views/checkout/components/ds_cart_content.tpl"}
@@ -79,8 +94,11 @@
                 </div>
             </div>
 
-            <button type="button" class="ds_prev-step" id="ds_prev-step_id">Назад</button>
-            <button type="button" class="ds_next-step" id="ds_next-step_id">Далее</button>
+            <div class="ds_checkout_button">
+                <button type="button" class="ds_button-step" id="ds_next-step_id">Далее</button>
+                <button type="button" class="ds_button-step" id="ds_prev-step_id">Назад</button>
+            </div>
+
             {*            <input type="button" id="ds_prev-step" value="Далее" class="ds_prev-step">*}
             {*            <input type="button" id="ds_prev-step" value="Далее" class="ds_prev-step">*}
 
